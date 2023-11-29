@@ -6,8 +6,34 @@ import authService from '../services/auth.service';
 import { jwtDecode } from "jwt-decode";
 import styles from '../styles/home.module.css';
 import Link from 'next/link';
+import TierButtons from '@/components/molecule/tierButtons';
 
 export default function Home() {
+
+  const testTiers = [
+    "Illegal",
+    "LC",
+    "NFE",
+    "PU",
+    "(PU)",
+    "NU",
+    "OU",
+    "NUBL",
+    "RU",
+    "PUBL",
+    "UU",
+    "RUBL",
+    "Uber",
+    "UUBL",
+    "AG",
+    "CAP LC",
+    "CAP",
+    "CAP NFE"
+  ] 
+
+  function handleTierClick(e){
+    console.log(e)
+  }
 
   const { state, dispatch } = useGlobalState();
 
@@ -34,6 +60,11 @@ export default function Home() {
 
   return (
     <>
+      <TierButtons
+      allTiers={testTiers}
+      clickHandler={handleTierClick}
+      />
+
       <main className={`${styles.main}`}>
 
         <div className={styles.grid}>

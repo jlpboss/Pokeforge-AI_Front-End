@@ -5,44 +5,28 @@ import PokemonTypeDropdown from '@/components/molecule/pokemonTypeDropdown';
 
 export default function Home() {
 
-  const testTiers = [
-    "Illegal",
-    "LC",
-    "NFE",
-    "PU",
-    "(PU)",
-    "NU",
-    "OU",
-    "NUBL",
-    "RU",
-    "PUBL",
-    "UU",
-    "RUBL",
-    "Uber",
-    "UUBL",
-    "AG",
-    "CAP LC",
-    "CAP",
-    "CAP NFE"
-  ] 
-
-  function handleTierClick(e){
-    console.log(e)
-  }
+  const testTiers = [ "Illegal", "LC", "NFE", "PU", "(PU)", "NU", "OU", "NUBL", "RU", "PUBL", "UU", "RUBL", "Uber", "UUBL", "AG", "CAP LC", "CAP", "CAP NFE" ] 
 
   const pokemonTypes = ['Normal', 'Fire', 'Water', 'Grass', 'Flying', 'Fighting', 'Poison', 'Electric', 'Ground', 'Rock', 'Psychic', 'Ice', 'Bug', 'Ghost', 'Steel', 'Dragon', 'Dark', 'Fairy']
+  
+  const [selectedTier, setSelectedTier] = useState('')
 
-  const [selectedTypeP, setSelectedTypeP] = useState('');
+  const [selectedTypeP, setSelectedTypeP] = useState('')
+
+  const [selectedTypeS, setSelectedTypeS] = useState('')
+
+  function handleTierClick(e){
+    console.log(e.target.id)
+    setSelectedTier(e.target.id)
+  }
 
   const handleTypeSelectP = (type) => {
-    setSelectedTypeP(type);
-  };
-
-  const [selectedTypeS, setSelectedTypeS] = useState('');
+    setSelectedTypeP(type)
+  }
 
   const handleTypeSelectS = (type) => {
-    setSelectedTypeS(type);
-  };
+    setSelectedTypeS(type)
+  }
 
 
   return (
@@ -71,11 +55,13 @@ export default function Home() {
         </div>
       </div>
       <p></p>
-      <p>Selected Pokémon Primary Type: {selectedTypeP}</p>
-      <p>Selected Pokémon Secondary Type: {selectedTypeS}</p>
+      <div className='container'>
+        <p>Selected Tier: {selectedTier}</p>
+        <p>Selected Pokémon Primary Type: {selectedTypeP}</p>
+        <p>Selected Pokémon Secondary Type: {selectedTypeS}</p>
 
-      <Link href="/">Home</Link>
-
+        <Link href="/">Home</Link>
+      </div>
     </>
   )
 }

@@ -7,6 +7,7 @@ export default function Button(props){
                 onClick={props.clickHandler}
                 value={props.text}
                 className={props.className}
+                style={props.style}
                 />
             </>
         )

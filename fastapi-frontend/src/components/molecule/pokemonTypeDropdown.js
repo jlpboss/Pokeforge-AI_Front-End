@@ -1,29 +1,38 @@
 import React, { useState } from 'react';
-
-export default function ({ types, onSelect, text }) {
+//{ types, onSelect, text, className }
+export default function (props) {
     const [selectedType, setSelectedType] = useState('');
 
     const handleTypeChange = (e) => {
         const newType = e.target.value;
         setSelectedType(newType);
-        onSelect(newType);
+        props.onSelect(newType);
     };
 
     return (
-        <div>
-            <label htmlFor="pokemonType">{text}</label>
-            <select
-            id="pokemonType"
-            value={selectedType}
-            onChange={handleTypeChange}
-            >
-            <option value="">-- Select Type --</option>
-            {types.map((type) => (
-            <option key={type} value={type}>
-                {type}
-            </option>
-            ))}
-        </select>
+        <div className='container'>
+            <div className='row justify-content-between'>
+                <div className='col text-center'>
+                    <label htmlFor="pokemonType">{props.text}</label>
+                </div>
+            </div>
+            <div className='row justify-content-between'>
+                <div className='col text-center'>
+                    <select
+                    id="pokemonType"
+                    value={selectedType}
+                    onChange={handleTypeChange}
+                    className={props.className}
+                    >
+                        <option value="">-- Select {props.thingString} --</option>
+                        {props.types.map((item) => (
+                        <option key={item} value={item}>
+                            {item}
+                        </option>
+                        ))}
+                    </select>
+                </div>
+            </div>
         </div>
     );
 };

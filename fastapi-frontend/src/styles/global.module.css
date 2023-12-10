@@ -1,0 +1,43 @@
+.custom{
+    background-color: rgb(45, 45, 45);
+    color: rgb(192, 211, 175);
+    height:250vh;
+}
+.customInput{
+    background-color: rgb(30, 30, 30);
+    color: rgb(192, 211, 175);
+    padding: 8px;
+    margin: 4px;
+    border-radius: 10px;
+}
+.customTable{
+    background-color: rgb(40, 40, 40);
+    color: rgb(192, 211, 175);
+    padding: 0.5rem 0.5rem;
+    margin-top: 4vh;
+    box-shadow: 0 16px 24px rgba(0, 0, 0, 0.7);
+}
+.customTableReal{
+    background-color: rgb(40, 40, 40);
+    color: rgb(192, 211, 175);
+    padding: 10px;
+    margin: 10px;
+    border: 10px;
+}
+.tableData{
+    padding: 0.5rem;
+}
+.navbar{
+    background-color: rgb(80, 80, 80)  !important;
+    color: rgb(192, 211, 175);
+}
+.addTopSpace{
+    margin-top: 8vh;
+}
+.navcolapsed{
+    background-color: rgb(192, 211, 175);
+}
+.text{
+    background-color: rgb(45, 45, 45);
+    color: rgb(192, 211, 175);
+}

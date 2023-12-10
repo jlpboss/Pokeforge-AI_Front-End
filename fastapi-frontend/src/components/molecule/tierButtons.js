@@ -8,7 +8,7 @@ export default function SelectionBar(props) {
             <Button 
                 text={tier}
                 clickHandler={props.clickHandler}
-                className={"custom-button"}
+                className={props.className}
             />
         </div>
     ));

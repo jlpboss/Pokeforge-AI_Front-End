@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import Link from 'next/link';
 import GenerationSelector from '@/components/organism/generationSelector';
 import GeneratedPokemonCard from '@/components/organism/generatedPokemonCard';
 import styles from '@/styles/global.module.css';
 import axios from 'axios';
 import Navbar from '@/components/molecule/navbar';
+import getAiImage from '@/components/utils/getAiImage';
 
 export default function Home() {
 
@@ -22,6 +22,8 @@ export default function Home() {
         });
     
     }, [])  
+
+  
 
   // const testTiers= ["Illegal", "LC", "NFE", "PU", "ZU", "ZUBL", "NU", "OU", "UU", "PUBL", "RU", "RUBL", "Uber", "UUBL", "NUBL", "AG", "CAP LC", "CAP","CAP NFE" ]
   const pokemonTypes = ['Normal', 'Fire', 'Water', 'Grass', 'Flying', 'Fighting', 'Poison', 'Electric', 'Ground', 'Rock', 'Psychic', 'Ice', 'Bug', 'Ghost', 'Steel', 'Dragon', 'Dark', 'Fairy']
@@ -48,6 +50,7 @@ export default function Home() {
   const [selectedTypeS, setSelectedTypeS] = useState('')
   const [inputText, setInputText] = useState('')
   const [gened, setGened] = useState(false)
+  const [pokemonImg, setPokemonImg] = useState('')
 
   function handleTierSelect (tier){
     setSelectedTier(tier)
@@ -65,12 +68,17 @@ export default function Home() {
     setInputText(e.target.value);
   }
 
+  useEffect(() => {
+      console.log(pokemonImg)
+  }, [pokemonImg])
+
   function handleResetClick() {
     setSelectedTier("")
     setSelectedTypeP("")
     setSelectedTypeS("")
     setInputText("")
     setGened(false)
+    setPokemonImg("")
     setPokemon({
       "name": "Loading",
       "types": [
@@ -102,12 +110,17 @@ export default function Home() {
     console.log(new_pokemon)
     setGened(true)
 
+    let img
+
     axios.post('http://127.0.0.1:8000/api/v1/pokemon/generate', new_pokemon)
-        .then(function (response) {
+        .then(async function (response) {
             console.log(response);
             setPokemon(response.data)
+            img = await getAiImage(response.data)
+            console.log(img)
+            setPokemonImg(img.data.generations_by_pk.generated_images[0].url)
             
-        })
+      })
         .catch(function (error) {
             console.log(error);
         });}
@@ -141,7 +154,7 @@ export default function Home() {
       ) : (
         <div className='container'>
           <GeneratedPokemonCard
-          imageUrl=""
+          imageUrl={pokemonImg}
           pokemonName={pokemon.name}
           pokemonType1={pokemon.types[0]}
           pokemonType2={pokemon.types[1]}
@@ -155,9 +168,28 @@ export default function Home() {
           />
         </div>
       )}
-        
-        
       </div>
     </div>
   )
 }
+
+// curl --request POST \
+//      --url https://cloud.leonardo.ai/api/rest/v1/generations \
+//      --header 'accept: application/json' \
+//      --header 'authorization: Bearer 17580f1e-925b-40fe-beaf-d0b45d0d3f30' \
+//      --header 'content-type: application/json' \
+//      --data '
+// {
+//   "height": 512,
+//   "modelId": "6bef9f1b-29cb-40c7-b9df-32b51c1f67d3",
+//   "prompt": "An oil painting of a cat",
+//   "width": 512
+// }
+// '
+
+
+
+// curl --request GET \
+//      --url https://cloud.leonardo.ai/api/rest/v1/generations/f00ba364-dcdb-4e5a-b252-c57d1d75988f \
+//      --header 'accept: application/json' \
+//      --header 'authorization: Bearer 17580f1e-925b-40fe-beaf-d0b45d0d3f30'

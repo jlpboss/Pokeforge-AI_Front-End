@@ -3,13 +3,17 @@ import StatTable from "../molecule/statTable";
 import Button from "../atom/button";
 
 export default function GeneratedPokemonCard (props) {
+    
     return (
         <div className={"card " + props.className}>
             <div className="row no-gutters">
-                <div className="col-md-4">
+                <div className="col-md-4 d-flex align-items-center justify-content-center">
                     <div className="container">
-                        <div className="row justify-content-between">
-                            <img src={props.imageUrl} className="card-img" alt="Card Image" />
+                        <div className="row justify-content-center">
+                            <div className="col text-center">
+                                {!props.imageUrl && <div className="spinner-border" style={{width: '4rem', height: '4rem'}} role="status"> <span className="visually-hidden">Loading...</span></div>}
+                                {props.imageUrl && <img src={props.imageUrl} className="card-img" alt="Loading Image" />}
+                            </div>
                         </div>
                     </div>
                 </div>

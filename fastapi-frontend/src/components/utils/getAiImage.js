@@ -1,9 +1,7 @@
 import axios from "axios";
 
 export default async function getAiImage(pokemon) {
-    require('dotenv').config()
-    console.log(process.env)
-    const apiKey = dotenv(process.env.API_KEY);
+    const apiKey = process.env.API_KEY;
     let maxStat = -1;
     let maxStatName = '';
     let minStat = 1000000;

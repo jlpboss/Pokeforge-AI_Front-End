@@ -112,7 +112,7 @@ export default function Home() {
 
     let img
 
-    axios.post('http://127.0.0.1:8000/api/v1/pokemon/generate', new_pokemon)
+    axios.post('https://pokeforge-ai-back-end.replit.app/api/v1/pokemon/generate', new_pokemon)
         .then(async function (response) {
             console.log(response);
             setPokemon(response.data)
@@ -172,24 +172,3 @@ export default function Home() {
     </div>
   )
 }
-
-// curl --request POST \
-//      --url https://cloud.leonardo.ai/api/rest/v1/generations \
-//      --header 'accept: application/json' \
-//      --header 'authorization: Bearer 17580f1e-925b-40fe-beaf-d0b45d0d3f30' \
-//      --header 'content-type: application/json' \
-//      --data '
-// {
-//   "height": 512,
-//   "modelId": "6bef9f1b-29cb-40c7-b9df-32b51c1f67d3",
-//   "prompt": "An oil painting of a cat",
-//   "width": 512
-// }
-// '
-
-
-
-// curl --request GET \
-//      --url https://cloud.leonardo.ai/api/rest/v1/generations/f00ba364-dcdb-4e5a-b252-c57d1d75988f \
-//      --header 'accept: application/json' \
-//      --header 'authorization: Bearer 17580f1e-925b-40fe-beaf-d0b45d0d3f30'

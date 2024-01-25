@@ -11,7 +11,7 @@ export default function Home() {
   const [testTiers, setTestTiers] = useState([])
 
   useEffect(() => {
-    axios.get('http://127.0.0.1:8000/api/v1/pokemon/all-tiers')
+    axios.get('https://pokeforge-ai-back-end.replit.app/api/v1/pokemon/all-tiers')
         .then(function (response) {
             console.log(response);
             setTestTiers(response.data)

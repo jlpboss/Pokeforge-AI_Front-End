@@ -28,7 +28,7 @@ export default async function getAiImage(pokemon) {
         url: 'https://cloud.leonardo.ai/api/rest/v1/generations',
         headers: {
             'accept': 'application/json',
-            'authorization': `Bearer ${process.env.API_KEY}`,
+            'authorization': `Bearer ${process.env.NEXT_PUBLIC_API_KEY}`,
             'content-type': 'application/json',
         },
         data: {
@@ -51,7 +51,7 @@ export default async function getAiImage(pokemon) {
             url: `https://cloud.leonardo.ai/api/rest/v1/generations/${newGenerationId}`,
             headers: {
                 'accept': 'application/json',
-                'authorization': `Bearer ${apiKey}`,
+                'authorization': `Bearer ${process.env.NEXT_PUBLIC_API_KEY}`,
             },
         };
 

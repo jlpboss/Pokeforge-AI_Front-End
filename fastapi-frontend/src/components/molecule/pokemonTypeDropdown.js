@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 //{ types, onSelect, text, className }
-export default function (props) {
+export default function PokemonTypeDropdown (props) {
     const [selectedType, setSelectedType] = useState('');
 
     const handleTypeChange = (e) => {

@@ -21,7 +21,7 @@ export default function Home() {
                 </div>
             <div className='row justify-content-between'>
                 <div className='col text-center'>
-                    <p>Hi, I'm Jett. I made this website to give me an excuse to do something I have wanted to do since I was a kid. I've written a genetic algorithm just like the ones I saw on youtube in middle school. if you have questions or anything like that feel free to shoot me an email at jettpennington@gmail.com</p>
+                    <p>{"Hi, I'm Jett. I made this website to give me an excuse to do something I have wanted to do since I was a kid. I've written a genetic algorithm just like the ones I saw on youtube in middle school. if you have questions or anything like that feel free to shoot me an email at jettpennington@gmail.com"}</p>
                 </div>
             </div>
         </div>

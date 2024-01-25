@@ -1,6 +1,7 @@
 import StatBar from "../atom/statBar";
 import StatTable from "../molecule/statTable";
 import Button from "../atom/button";
+import Image from "next/image";
 
 export default function GeneratedPokemonCard (props) {
     
@@ -12,7 +13,7 @@ export default function GeneratedPokemonCard (props) {
                         <div className="row justify-content-center">
                             <div className="col text-center">
                                 {!props.imageUrl && <div className="spinner-border" style={{width: '4rem', height: '4rem'}} role="status"> <span className="visually-hidden">Loading...</span></div>}
-                                {props.imageUrl && <img src={props.imageUrl} className="card-img" alt="Loading Image" />}
+                                {props.imageUrl && <Image src={props.imageUrl} className="card-img" alt="Loading Image" />}
                             </div>
                         </div>
                     </div>

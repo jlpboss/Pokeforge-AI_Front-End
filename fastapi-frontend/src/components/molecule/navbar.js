@@ -1,17 +1,18 @@
 import Logo from "../atom/logo"
 import Navtext from "../atom/navText"
+import Link from "next/link"
 
 export default function Navbar(props) {
 
     return (
         <nav className={"navbar navbar-expand-md bg-body-tertiary " + props.className}>
             <div className="container-fluid">
-                <a className="navbar-brand" href="/">
+                <Link className="navbar-brand" href="/">
                     <Logo 
                     src="/Slowpoke.png"
                     alt="Picture of Slowpoke"
                     />
-                </a>
+                </Link>
                 <button className={"navbar-toggler " + props.colapseClass} type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>

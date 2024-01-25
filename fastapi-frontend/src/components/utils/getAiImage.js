@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default async function getAiImage(pokemon) {
-    const apiKey = process.env.API_KEY;
+    //const apiKey = process.env.API_KEY;
     let maxStat = -1;
     let maxStatName = '';
     let minStat = 1000000;
@@ -27,7 +27,7 @@ export default async function getAiImage(pokemon) {
         url: 'https://cloud.leonardo.ai/api/rest/v1/generations',
         headers: {
             'accept': 'application/json',
-            'authorization': `Bearer ${apiKey}`,
+            'authorization': `Bearer ${process.env.API_KEY}`,
             'content-type': 'application/json',
         },
         data: {

@@ -1,6 +1,7 @@
 import axios from "axios";
 
 export default async function getAiImage(pokemon) {
+    console.log(process.env.API_KEY);
     //const apiKey = process.env.API_KEY;
     let maxStat = -1;
     let maxStatName = '';
